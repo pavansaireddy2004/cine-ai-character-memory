@@ -3,6 +3,8 @@ import os
 from dotenv import load_dotenv
 from PIL import Image
 from io import BytesIO
+from cache_manager import get_cached_image, save_to_cache
+
 
 # Load environment variables
 load_dotenv()
@@ -57,5 +59,22 @@ def generate_image(prompt, output_path):
     image = Image.open(BytesIO(response.content))
     image.save(output_path)
     print(f"Image saved as {output_path}")
+
+def generate_image_with_cache(prompt, output_path):
+    # 1️⃣ Check cache first
+    cached_path = get_cached_image(prompt)
+
+    if cached_path and os.path.exists(cached_path):
+        print("✅ Loaded image from cache (no credits used)")
+        return Image.open(cached_path)
+
+    # 2️⃣ If not cached, call the ORIGINAL function
+    generate_image(prompt, output_path)
+
+    # 3️⃣ Save mapping to cache
+    save_to_cache(prompt, output_path)
+
+    return Image.open(output_path)
+
 
 

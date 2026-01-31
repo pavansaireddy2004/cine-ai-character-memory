@@ -6,15 +6,6 @@ def load_character(character_name="hero"):
     """
     with open("character_memory.json", "r") as f:
         data = json.load(f)
-
-    return data[character_name]
-
-
-import json
-
-def load_character(character_name="hero"):
-    with open("character_memory.json", "r") as f:
-        data = json.load(f)
     return data[character_name]
 
 
@@ -44,14 +35,12 @@ def build_prompt(scene, character):
         realistic environment matching the scene,
         environment must be visible and story-relevant,
 
-        -- camera & framing control (ADDED)
-        camera distance: long shot or wide shot,
+        camera distance is long shot or wide shot,
         full upper body visible,
         subject occupies only 30–40% of the frame,
         environment occupies majority of the frame,
         background clearly visible and detailed,
 
-        -- environment importance (ADDED)
         background must be clearly readable,
         background is as important as the character,
         environment storytelling shot,
@@ -64,7 +53,6 @@ def build_prompt(scene, character):
         modern digital cinema look,
         16:9 aspect ratio, landscape framing,
 
-        -- negative framing (ADDED)
         no close-up face,
         no extreme close-up,
         no tight portrait,
@@ -72,7 +60,7 @@ def build_prompt(scene, character):
         """
         return prompt.strip()
 
-    # 🔹 CASE 2: Scene is dictionary (your original workflow)
+    # 🔹 CASE 2: Scene is dictionary
     prompt = f"""
     {character['description']},
     same person, same face, same facial structure,
@@ -92,7 +80,6 @@ def build_prompt(scene, character):
     environment is clearly visible,
     background is dominant and story-relevant,
 
-    -- environment importance (ADDED)
     background must be clearly readable,
     background is as important as the character,
     environment storytelling shot,
@@ -104,8 +91,7 @@ def build_prompt(scene, character):
     visible environment around the character,
     camera positioned as {scene['camera']},
 
-    -- camera & framing control (ADDED)
-    camera distance: long shot or wide shot,
+    camera distance is long shot or wide shot,
     full upper body visible,
     subject occupies only 30–40% of the frame,
     environment occupies majority of the frame,
@@ -118,19 +104,97 @@ def build_prompt(scene, character):
     modern digital cinema look,
     16:9 aspect ratio, landscape framing,
 
-    --no studio lighting,
-    --no plain background,
-    --no portrait photography,
-    --no headshot,
-    --no close-up only face,
-    --no extreme close-up,
-    --no tight portrait,
-    --no face filling the frame,
-    --no black and white,
-    --no monochrome,
-    --no sketch,
-    --no illustration,
-    --no anime,
-    --no comic style
+    no studio lighting,
+    no plain background,
+    no portrait photography,
+    no headshot,
+    no close-up only face,
+    no extreme close-up,
+    no tight portrait,
+    no face filling the frame,
+    no black and white,
+    no monochrome,
+    no sketch,
+    no illustration,
+    no anime,
+    no comic style
     """
+    return prompt.strip()
+
+
+def build_prompt_with_co_character(scene, character, co_role="side"):
+    """
+    Builds prompt for scenes with a co-character.
+    co_role:
+      - "side"    → hero dominant, side character secondary
+      - "heroine" → hero and heroine share equal importance
+    """
+
+    if co_role == "heroine":
+        people_block = """
+        two main characters present,
+        hero and heroine share the frame equally,
+        balanced cinematic two-shot composition,
+        both characters clearly visible,
+        both faces in focus,
+        equal lighting on both characters,
+        emotional connection implied between them
+        """
+    else:
+        people_block = """
+        hero is the clear primary subject,
+        one side character present as supporting role,
+        hero occupies majority of the frame,
+        side character positioned to the side or background,
+        hero in sharp focus, side character slightly out of focus,
+        lighting emphasizes hero
+        """
+
+    prompt = f"""
+    {character['description']},
+    same person, same face, same facial structure,
+    same jawline, same beard style, same hairstyle,
+
+    {people_block},
+
+    cinematic 35mm film lens look,
+    medium-wide or wide shot,
+    full upper body visible,
+    subject occupies only 30–40% of the frame,
+    environment occupies majority of the frame,
+
+    wearing {scene['costume']},
+
+    scene action: {scene['action']},
+    background: {scene['background']},
+    environment must be clearly visible,
+    background is dominant and story-relevant,
+
+    lighting: {scene['lighting']},
+
+    camera composition: {scene['camera']},
+    rule of thirds composition,
+    environment storytelling shot,
+
+    ultra realistic cinematic movie still,
+    full color photography,
+    natural skin tones,
+    realistic color grading,
+    modern digital cinema look,
+    16:9 aspect ratio, landscape framing,
+
+    no studio lighting,
+    no plain background,
+    no portrait photography,
+    no headshot,
+    no extreme close-up,
+    no face filling the frame,
+    no black and white,
+    no monochrome,
+    no sketch,
+    no illustration,
+    no anime,
+    no comic style
+    """
+
     return prompt.strip()

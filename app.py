@@ -1,5 +1,6 @@
 from prompt_engine import load_character, build_prompt
-from image_generator import generate_image
+from image_generator import generate_image_with_cache
+
 
 def main():
     # Load character memory (identity stays locked)
@@ -46,7 +47,9 @@ def main():
 
     for scene in scenes:
         prompt = build_prompt(scene, character)
-        generate_image(prompt, scene["output"])
+        generate_image_with_cache(prompt, scene["output"])
+
+
 
 
 if __name__ == "__main__":
