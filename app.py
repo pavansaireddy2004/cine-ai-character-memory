@@ -1,13 +1,16 @@
 from prompt_engine import (
     load_character,
     build_prompt,
-    build_establishing_prompt
+    build_establishing_prompt,
+    build_heroine_prompt
 )
 from image_generator import generate_image_with_cache
 
 
 def main():
-    # Load hero identity
+    # ==================================================
+    # Load hero identity ONCE
+    # ==================================================
     character = load_character("hero")
 
     # ==================================================
@@ -47,7 +50,7 @@ def main():
 
     for i, shot in enumerate(scene_1_shots):
         if i == 0:
-            prompt = build_establishing_prompt(shot , character)
+            prompt = build_establishing_prompt(shot, character)
         else:
             prompt = build_prompt(shot, character)
 
@@ -65,7 +68,7 @@ def main():
                 "dry trees, iron gate in distance, light mist near ground"
             ),
             "lighting": "natural moonlight, low visibility, soft shadows",
-            "camera": "wide establishing shot, hero small in frame",
+            "camera": "wide establishing shot",
             "costume": "dark traditional clothing",
             "output": "scene2_shot1_establishing.png"
         },
@@ -101,16 +104,8 @@ def main():
 
         generate_image_with_cache(prompt, shot["output"])
 
-
-if __name__ == "__main__":
-    main()
-
-
-    # Load hero identity
-    character = load_character("hero")
-
     # ==================================================
-    # 🎬 SCENE 3 — POLICE STATION
+    # 🎬 SCENE 3 — POLICE STATION (3 SHOTS)
     # ==================================================
     scene_3_shots = [
         {
@@ -120,7 +115,7 @@ if __name__ == "__main__":
                 "files, notice board, officers moving in background"
             ),
             "lighting": "flat indoor fluorescent lighting",
-            "camera": "wide establishing shot, hero small in frame",
+            "camera": "wide establishing shot",
             "costume": "simple dark shirt and trousers",
             "output": "scene3_shot1_establishing.png"
         },
@@ -132,14 +127,12 @@ if __name__ == "__main__":
             ),
             "lighting": "soft indoor lighting",
             "camera": "medium-wide shot",
-            "costume": "same dark shirt and trousers",
+            "costume": "same clothing",
             "output": "scene3_shot2_interrogation.png"
         },
         {
             "action": "Hero standing silently, thinking, under pressure",
-            "background": (
-                "police station interior, officers blurred in background"
-            ),
+            "background": "police station interior, officers blurred in background",
             "lighting": "subdued indoor lighting",
             "camera": "side angle medium-wide shot",
             "costume": "same clothing",
@@ -155,61 +148,103 @@ if __name__ == "__main__":
 
         generate_image_with_cache(prompt, shot["output"])
 
+    # ==================================================
+    # 🎬 SCENE 4 — ACTION / TRANSITION (3 SHOTS)
+    # ==================================================
+    scene_4_shots = [
+        {
+            "action": "Hero walking alone slowly along the road",
+            "background": (
+                "Indian city street at night, dim street lights, "
+                "passing vehicles with motion blur, closed shops, "
+                "wet road reflecting lights"
+            ),
+            "lighting": "natural street lighting",
+            "camera": "wide establishing shot",
+            "costume": "dark casual clothing",
+            "output": "scene4_shot1_city_walk.png"
+        },
+        {
+            "action": "Hero driving a car quietly through the city at night",
+            "background": (
+                "city road seen through car windows, dashboard lights glowing"
+            ),
+            "lighting": "street light and dashboard glow",
+            "camera": "wide exterior shot",
+            "costume": "dark casual clothing",
+            "output": "scene4_shot2_driving.png"
+        },
+        {
+            "action": "Hero standing beside a friend, smoking quietly",
+            "background": (
+                "roadside tea stall at night, dim bulb light, smoke in air"
+            ),
+            "lighting": "warm practical lighting",
+            "camera": "medium-wide shot",
+            "costume": "dark casual clothing",
+            "output": "scene4_shot3_friend.png"
+        }
+    ]
 
-# ❗ NOTHING BELOW THIS ❗
-if __name__ == "__main__":
-    main()
+    for i, shot in enumerate(scene_4_shots):
+        if i == 0:
+            prompt = build_establishing_prompt(shot, character)
+        else:
+            prompt = build_prompt(shot, character)
 
+        generate_image_with_cache(prompt, shot["output"])
 
     # ==================================================
-# 🎬 SCENE 4 — ACTION / TRANSITION (3 SHOTS)
-# ==================================================
-scene_4_shots = [
-    {
-        # SHOT 1 — Establishing (City / Movement)
-        "action": "Hero walking alone slowly along the road",
-        "background": (
-            "Indian city street at night, dim street lights, "
-            "passing vehicles with motion blur, closed shops, "
-            "wet road reflecting lights, urban atmosphere"
-        ),
-        "lighting": "natural street lighting, low contrast night tones",
-        "camera": "wide establishing shot, hero very small in frame",
-        "costume": "dark casual clothing",
-        "output": "scene4_shot1_city_walk.png"
-    },
-    {
-        # SHOT 2 — Vehicle Motion
-        "action": "Hero driving a car quietly through the city at night",
-        "background": (
-            "city road seen through car windows, dashboard lights glowing, "
-            "street lights streaking, traffic moving in distance"
-        ),
-        "lighting": "mixed street light and dashboard glow",
-        "camera": "side angle wide shot from outside the car",
-        "costume": "dark casual clothing",
-        "output": "scene4_shot2_driving.png"
-    },
-    {
-        # SHOT 3 — Social / Grit
-        "action": "Hero standing beside a friend, smoking quietly",
-        "background": (
-            "roadside tea stall at night, parked vehicles, "
-            "dim bulb light, smoke in air, empty road behind"
-        ),
-        "lighting": "warm practical light mixed with night darkness",
-        "camera": "medium-wide shot, both characters small in frame",
-        "costume": "dark casual clothing",
-        "output": "scene4_shot3_friend.png"
-    }
-]
+    # 🎬 SCENE 5 — HEROINE INTRO (FIXED ✅)
+    # ==================================================
+    scene_5_shots = [
+        {
+            "action": "Hero and female lead walking slowly together",
+            "background": (
+                "large public park at evening, tall trees, walking paths, "
+                "park benches, street lights turning on"
+            ),
+            "lighting": "natural evening light",
+            "camera": "very wide establishing shot",
+            "costume": "casual evening clothing",
+            "output": "scene5_shot1_park_establishing.png"
+        },
+        {
+            "action": "Hero and female lead walking side by side calmly",
+            "background": (
+                "quiet park path at night, trees on both sides"
+            ),
+            "lighting": "soft park lighting",
+            "camera": "medium-wide shot",
+            "costume": "same clothing",
+            "output": "scene5_shot2_walk.png"
+        },
+        {
+            "action": "Hero driving the car, female lead in passenger seat",
+            "background": (
+                "city road at night, street lights reflecting on windshield"
+            ),
+            "lighting": "street lights and dashboard glow",
+            "camera": "wide interior car shot",
+            "costume": "same clothing",
+            "output": "scene5_shot3_car_drive.png"
+        },
+        {
+            "action": "Hero glances at female lead with a slight smile",
+            "background": (
+                "parked car on quiet roadside, night atmosphere"
+            ),
+            "lighting": "soft ambient night lighting",
+            "camera": "medium-wide two shot",
+            "costume": "same clothing",
+            "output": "scene5_shot4_smile.png"
+        }
+    ]
 
-for i, shot in enumerate(scene_4_shots):
-    if i == 0:
-        # Establishing shot — environment first
-        prompt = build_establishing_prompt(shot, character)
-    else:
-        # Normal cinematic shots
-        prompt = build_prompt(shot, character)
+    for shot in scene_5_shots:
+        prompt = build_heroine_prompt(shot, character)
+        generate_image_with_cache(prompt, shot["output"])
 
-    generate_image_with_cache(prompt, shot["output"])
+
+if __name__ == "__main__":
+    main()

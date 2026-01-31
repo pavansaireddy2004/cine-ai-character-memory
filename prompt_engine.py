@@ -171,3 +171,234 @@ def build_action_mass_prompt(scene, character):
     """
 
     return prompt.strip()
+
+def build_heroine_prompt(scene, character):
+    """
+    Hero + Heroine cinematic shots (balanced, environment visible)
+    """
+
+    prompt = f"""
+    {character['description']},
+    same hero identity across scenes,
+
+    two main characters present:
+    hero and female lead,
+
+    both characters visible,
+    natural human proportions,
+    realistic appearance,
+
+    cinematic wide or medium-wide shot,
+    environment clearly visible,
+    background dominant over faces,
+
+    action:
+    {scene['action']},
+
+    background:
+    {scene['background']},
+
+    lighting:
+    {scene['lighting']},
+
+    camera:
+    {scene['camera']},
+
+    ultra realistic cinematic movie still,
+    natural skin tones,
+    serious film look,
+    16:9 landscape framing,
+
+    no anime,
+    no illustration,
+    no fantasy,
+    no beauty shot,
+    no close-up face,
+    no portrait framing
+    """
+
+    return prompt.strip()
+
+
+
+
+def build_mass_hero_prompt(scene, character):
+    """
+    SCENE 6 ONLY
+    Mythic / Mass elevation shot
+    Environment and scale dominate the frame
+    """
+
+    prompt = f"""
+    epic cinematic wide shot, mythic scale, theatrical elevation moment,
+
+    environment is the primary subject,
+    vast dramatic landscape,
+    towering storm clouds, heavy rain, lightning tearing the sky,
+    massive symbolic elements dominating the background,
+    environment occupies at least 75–80% of the frame,
+
+    hero presence:
+    {character['description']},
+    hero standing firm and powerful,
+    hero small relative to the environment,
+    full body or long shot only,
+    face visible but NOT emphasized,
+    no portrait framing,
+
+    hero action:
+    {scene['action']},
+
+    background details:
+    {scene['background']},
+
+    lighting:
+    extreme high-contrast cinematic lighting,
+    lightning backlight,
+    strong rim light outlining hero silhouette,
+    dark clouds, rain-filled atmosphere,
+
+    ultra realistic cinematic movie still,
+    epic Indian mythic tone,
+    grounded realism,
+    serious theatrical color grading,
+    large-scale cinema poster quality,
+
+    camera:
+    extreme wide angle lens,
+    low-angle perspective looking up at the hero,
+    deep depth of field,
+    background razor sharp and dominant,
+
+    16:9 aspect ratio,
+    widescreen landscape framing,
+
+    no close-up,
+    no medium shot,
+    no portrait,
+    no studio lighting,
+    no beauty lighting,
+    no anime,
+    no illustration,
+    no fantasy art style
+    """
+
+    return prompt.strip()
+
+
+
+
+def build_mass_entry_prompt(scene, character):
+    """
+    Grounded modern mass entry shot
+    Environment dominates, hero powerful but realistic
+    """
+
+    prompt = f"""
+    ultra realistic cinematic wide shot,
+
+    environment is the primary subject,
+    real-world location, grounded realism,
+    open terrain, road, vehicles, sky visible,
+    environment occupies at least 70% of the frame,
+
+    hero presence:
+    {character['description']},
+    hero stepping out of a vehicle,
+    confident and intense body language,
+    calm but dangerous expression,
+    hero visible from thighs-up or full body,
+    face visible but NOT dominating the frame,
+
+    action:
+    {scene['action']},
+
+    background:
+    {scene['background']},
+
+    lighting:
+    natural daylight,
+    strong directional sunlight,
+    realistic shadows,
+    cinematic contrast without stylization,
+
+    camera:
+    wide cinematic lens,
+    eye-level or slightly low angle,
+    deep depth of field,
+
+    ultra realistic movie still,
+    modern Indian action cinema tone,
+    natural colors,
+    serious and grounded mood,
+
+    16:9 aspect ratio,
+    landscape framing,
+
+    no fantasy,
+    no mythology,
+    no anime,
+    no illustration,
+    no close-up portrait,
+    no stylized VFX
+    """
+
+    return prompt.strip()
+
+
+def build_mass_entry_prompt(scene, character):
+    """
+    Grounded mass hero entry — realistic, emotional, environment-first
+    """
+
+    prompt = f"""
+    ultra realistic cinematic wide shot,
+
+    environment dominates the frame,
+    real-world outdoor location,
+    rain visible clearly across the scene,
+    background textures readable,
+    environment occupies at least 70% of the frame,
+
+    hero:
+    {character['description']},
+    hero present with strong body language,
+    hero NOT posing,
+    hero NOT centered,
+    hero seen from medium-long to full body,
+    face visible but not the focus,
+
+    action:
+    {scene['action']},
+
+    background:
+    {scene['background']},
+
+    lighting:
+    natural overcast daylight,
+    rain-diffused light,
+    soft shadows,
+    realistic contrast,
+
+    camera:
+    cinematic wide lens,
+    eye-level framing,
+    deep depth of field,
+
+    grounded Indian action cinema look,
+    natural colors,
+    serious emotional tone,
+
+    16:9 aspect ratio,
+    landscape framing,
+
+    no close-up,
+    no portrait,
+    no fantasy,
+    no mythology,
+    no anime,
+    no illustration,
+    no dramatic VFX
+    """
+
+    return prompt.strip()
