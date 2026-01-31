@@ -112,3 +112,62 @@ def build_establishing_prompt(scene, character):
     """
 
     return prompt.strip()
+
+
+def build_action_mass_prompt(scene, character):
+    """
+    Scene 4 — Mass / Action shots
+    Hero present but NOT dominant
+    Multiple people, weapons, cinematic chaos
+    """
+
+    prompt = f"""
+    {character['description']},
+    same person across scenes,
+    consistent facial identity,
+
+    multiple people present,
+    hero is part of a group,
+    hero not centered,
+    hero not dominant,
+    side characters visible clearly,
+
+    some people holding guns or weapons,
+    tense action atmosphere,
+    serious realistic tone,
+    no exaggeration,
+
+    cinematic 35mm film look,
+    wide or medium-wide shot,
+    group composition,
+    hero occupies less than 30% of frame,
+
+    action:
+    {scene['action']},
+
+    background:
+    {scene['background']},
+
+    lighting:
+    {scene['lighting']},
+
+    camera:
+    {scene['camera']},
+
+    background clearly visible,
+    environment important to storytelling,
+
+    ultra realistic cinematic movie still,
+    natural colors,
+    film color grading,
+    16:9 landscape,
+
+    no anime,
+    no illustration,
+    no fantasy,
+    no portrait,
+    no close-up face,
+    no hero-only framing
+    """
+
+    return prompt.strip()
