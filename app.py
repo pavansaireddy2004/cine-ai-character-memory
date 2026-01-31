@@ -159,3 +159,57 @@ if __name__ == "__main__":
 # ❗ NOTHING BELOW THIS ❗
 if __name__ == "__main__":
     main()
+
+
+    # ==================================================
+# 🎬 SCENE 4 — ACTION / TRANSITION (3 SHOTS)
+# ==================================================
+scene_4_shots = [
+    {
+        # SHOT 1 — Establishing (City / Movement)
+        "action": "Hero walking alone slowly along the road",
+        "background": (
+            "Indian city street at night, dim street lights, "
+            "passing vehicles with motion blur, closed shops, "
+            "wet road reflecting lights, urban atmosphere"
+        ),
+        "lighting": "natural street lighting, low contrast night tones",
+        "camera": "wide establishing shot, hero very small in frame",
+        "costume": "dark casual clothing",
+        "output": "scene4_shot1_city_walk.png"
+    },
+    {
+        # SHOT 2 — Vehicle Motion
+        "action": "Hero driving a car quietly through the city at night",
+        "background": (
+            "city road seen through car windows, dashboard lights glowing, "
+            "street lights streaking, traffic moving in distance"
+        ),
+        "lighting": "mixed street light and dashboard glow",
+        "camera": "side angle wide shot from outside the car",
+        "costume": "dark casual clothing",
+        "output": "scene4_shot2_driving.png"
+    },
+    {
+        # SHOT 3 — Social / Grit
+        "action": "Hero standing beside a friend, smoking quietly",
+        "background": (
+            "roadside tea stall at night, parked vehicles, "
+            "dim bulb light, smoke in air, empty road behind"
+        ),
+        "lighting": "warm practical light mixed with night darkness",
+        "camera": "medium-wide shot, both characters small in frame",
+        "costume": "dark casual clothing",
+        "output": "scene4_shot3_friend.png"
+    }
+]
+
+for i, shot in enumerate(scene_4_shots):
+    if i == 0:
+        # Establishing shot — environment first
+        prompt = build_establishing_prompt(shot, character)
+    else:
+        # Normal cinematic shots
+        prompt = build_prompt(shot, character)
+
+    generate_image_with_cache(prompt, shot["output"])
