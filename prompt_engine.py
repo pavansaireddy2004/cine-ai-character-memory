@@ -11,6 +11,42 @@ def load_character(character_name="hero"):
 
 
 def build_prompt(scene, character):
+    """
+    Builds prompt from:
+    - scene DICT (story-based scenes)
+    - OR plain TEXT (Streamlit user input)
+    """
+
+    # 🔹 CASE 1: Scene is plain text (Streamlit input)
+    if isinstance(scene, str):
+        prompt = f"""
+        {character['description']},
+        same person, same face, same facial structure,
+        same jawline, same beard style, same hairstyle,
+
+        single male character only,
+        only one person in the frame,
+        solo subject,
+
+        cinematic 35mm lens look,
+        medium-wide framing, waist-up or wider,
+
+        scene description: {scene},
+
+        realistic environment matching the scene,
+        environment must be visible and story-relevant,
+
+        cinematic lighting,
+        ultra realistic cinematic movie still,
+        full color photography,
+        natural skin tones,
+        realistic color grading,
+        modern digital cinema look,
+        16:9 aspect ratio, landscape framing
+        """
+        return prompt.strip()
+
+    # 🔹 CASE 2: Scene is dictionary (your original workflow)
     prompt = f"""
     {character['description']},
     same person, same face, same facial structure,
@@ -57,5 +93,3 @@ def build_prompt(scene, character):
     --no comic style
     """
     return prompt.strip()
-
-
