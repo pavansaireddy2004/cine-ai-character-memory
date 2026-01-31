@@ -1,5 +1,11 @@
 {
-  "0642f2e87662afcafd6cc6783023df34935ef2812518594da448996a6a5fdafa": "scene_1.png",
-  "b2f907be980e6b4d1cc935b670c0e8dd252c3cdc052a72e9535727b301ee7ad8": "scene_2.png",
-  "c557339ffeca9d95a9fe67dc6ba3ba9f82c0b3c655e2e3156ee099e2fe11acf1": "scene_3.png"
+  "7d6bd1639c2927a6abdc023686ef2adb7b8b1087e0805b4f3fc44b6788096fb6": "scene1_shot1_establishing.png",
+  "ca2b0945691fb841473f81d8d43f3c632132ee4d5dc254ee89d4cb0c74251981": "scene1_shot2_medium.png",
+  "5f560de680ee02471234ec294d8f3ebe03b3fee15af84ea53ff75304df53e222": "scene1_shot3_mood.png",
+  "ca0b8c32f1d90f093ec83ed893fa9c657adf9734c144020bbcce935b85e0fd14": "scene2_shot1_establishing.png",
+  "22ace6a69b6dec68eaff3a1b2f25be6f63fdafd27badf650a1886f853e91086d": "scene2_shot2_action.png",
+  "828579d8f5847899ce16194f9dc8152c894922e02e953a13cbcdc50ad5799dbb": "scene2_shot3_emotion.png",
+  "5c05acd648277c6116eea21200a5b938d3275e3f14c7855b78d398d4c6ca5944": "scene3_shot1_establishing.png",
+  "2c839e20731e634aad629e0abf4fd0b52becd42b08362dc484b8d37c0801cea0": "scene3_shot2_interrogation.png",
+  "0d45dc9fc0615f1c15b85ed14e95c16aa8f7b7cdc1ab82cd465d41ca6cf88fc1": "scene3_shot3_pressure.png"
 }
