@@ -10,6 +10,14 @@ def load_character(character_name="hero"):
     return data[character_name]
 
 
+import json
+
+def load_character(character_name="hero"):
+    with open("character_memory.json", "r") as f:
+        data = json.load(f)
+    return data[character_name]
+
+
 def build_prompt(scene, character):
     """
     Builds prompt from:
@@ -36,13 +44,31 @@ def build_prompt(scene, character):
         realistic environment matching the scene,
         environment must be visible and story-relevant,
 
+        -- camera & framing control (ADDED)
+        camera distance: long shot or wide shot,
+        full upper body visible,
+        subject occupies only 30–40% of the frame,
+        environment occupies majority of the frame,
+        background clearly visible and detailed,
+
+        -- environment importance (ADDED)
+        background must be clearly readable,
+        background is as important as the character,
+        environment storytelling shot,
+
         cinematic lighting,
         ultra realistic cinematic movie still,
         full color photography,
         natural skin tones,
         realistic color grading,
         modern digital cinema look,
-        16:9 aspect ratio, landscape framing
+        16:9 aspect ratio, landscape framing,
+
+        -- negative framing (ADDED)
+        no close-up face,
+        no extreme close-up,
+        no tight portrait,
+        no face filling the frame
         """
         return prompt.strip()
 
@@ -66,12 +92,24 @@ def build_prompt(scene, character):
     environment is clearly visible,
     background is dominant and story-relevant,
 
+    -- environment importance (ADDED)
+    background must be clearly readable,
+    background is as important as the character,
+    environment storytelling shot,
+
     lighting: {scene['lighting']},
 
     cinematic wide shot,
     subject placed using rule of thirds,
     visible environment around the character,
     camera positioned as {scene['camera']},
+
+    -- camera & framing control (ADDED)
+    camera distance: long shot or wide shot,
+    full upper body visible,
+    subject occupies only 30–40% of the frame,
+    environment occupies majority of the frame,
+    background clearly visible and detailed,
 
     ultra realistic cinematic movie still,
     full color photography,
@@ -85,6 +123,9 @@ def build_prompt(scene, character):
     --no portrait photography,
     --no headshot,
     --no close-up only face,
+    --no extreme close-up,
+    --no tight portrait,
+    --no face filling the frame,
     --no black and white,
     --no monochrome,
     --no sketch,
