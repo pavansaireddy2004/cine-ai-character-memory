@@ -1,0 +1,121 @@
+{
+  "scene1_podcast": {
+    "keywords": [
+      "podcast",
+      "recording",
+      "talking",
+      "studio",
+      "microphone",
+      "interview"
+    ],
+    "image": "scene1_shot1_establishing.png"
+  },
+
+  "scene2_graveyard": {
+    "keywords": [
+      "graveyard",
+      "grave",
+      "death",
+      "night",
+      "sad",
+      "tombstone",
+      "digging"
+    ],
+    "image": "scene2_shot1_establishing.png"
+  },
+
+  "scene3_police": {
+    "keywords": [
+      "police station",
+      "interrogation",
+      "investigation",
+      "police",
+      "questioning",
+      "custody"
+    ],
+    "image": "scene3_shot1_establishing.png"
+  },
+
+  "scene4_city_action": {
+    "keywords": [
+      "city",
+      "walking",
+      "night road",
+      "alone",
+      "driving",
+      "street",
+      "smoking"
+    ],
+    "image": "scene4_shot1_city_walk.png"
+  },
+
+  "scene5_heroine_intro": {
+    "keywords": [
+      "heroine",
+      "love",
+      "park",
+      "walking together",
+      "car drive",
+      "romantic",
+      "smile"
+    ],
+    "image": "scene5_shot1_park_establishing.png"
+  },
+
+  "scene6_mass": {
+    "keywords": [
+      "mass",
+      "mass entry",
+      "hero running",
+      "hero walking",
+      "storm",
+      "rain",
+      "powerful hero",
+      "epic hero"
+    ],
+    "image": "scene6_mass_hero.png"
+  },
+
+  "scene7_climax": {
+    "keywords": [
+      "climax",
+      "final confrontation",
+      "hero meets heroine",
+      "emotional",
+      "turning point"
+    ],
+    "image": "scene7_climax_shot1_establishing.png"
+  },
+
+  "scene8_mass_entry": {
+    "keywords": [
+      "mass entry",
+      "car exit",
+      "hero entry",
+      "rain entry",
+      "arrival"
+    ],
+    "image": "scene8_shot1_car_exit.png"
+  },
+
+  "scene9_end": {
+    "keywords": [
+      "ending",
+      "after fight",
+      "silhouette",
+      "aftermath",
+      "final scene"
+    ],
+    "image": "scene9_the_end.png"
+  },
+
+  "scene10_title": {
+    "keywords": [
+      "the end",
+      "end title",
+      "movie end",
+      "final title"
+    ],
+    "image": "scene10_the_end.png"
+  }
+}
