@@ -7,18 +7,26 @@ st.set_page_config(page_title="AI Character Memory", layout="wide")
 st.title("🎬 AI Character Memory System")
 st.write("Generate consistent character images across scenes")
 
-# Load character
 character = load_character("hero")
 
-# User input
 scene_text = st.text_area(
     "Enter scene description",
-    "Hero standing inside a police station during investigation"
+    "Hero is running"
 )
 
 if st.button("Generate Image"):
     with st.spinner("Generating image..."):
-        prompt = build_prompt(scene_text, character)
+
+        # 🔧 FIX: wrap text into a scene dictionary
+        scene = {
+            "action": scene_text,
+            "background": "cinematic environment, realistic setting",
+            "lighting": "dramatic cinematic lighting",
+            "camera": "medium wide shot",
+            "costume": "consistent hero outfit"
+        }
+
+        prompt = build_prompt(scene, character)
         output_path = "output.png"
 
         image = generate_image_with_cache(prompt, output_path)
