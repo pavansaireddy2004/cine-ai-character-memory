@@ -70,7 +70,7 @@ user_input = st.text_area(
 )
 
 reuse_images = st.checkbox(
-    "Reuse existing images (no credits)",
+    "Reuse existing images",
     value=True
 )
 
@@ -114,7 +114,7 @@ if st.button("Generate / Load Image", type="primary"):
 st.divider()
 st.subheader("🎬 Story Preview Video")
 
-video_path = "final_story_video.mp4"
+video_path = "videos/final_story_video.mp4"
 
 if os.path.exists(video_path):
     st.video(video_path)
