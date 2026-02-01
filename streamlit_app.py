@@ -8,7 +8,7 @@ from image_generator import generate_image_with_cache
 # 🎛️ STREAMLIT CONFIG
 # ==================================================
 st.set_page_config(
-    page_title="AI Character Memory (Hybrid Mode)",
+    page_title="CINE PERSONA - AI Character Memory",
     layout="wide"
 )
 
