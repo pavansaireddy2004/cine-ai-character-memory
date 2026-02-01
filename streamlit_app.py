@@ -87,7 +87,6 @@ if st.button("Generate / Load Image", type="primary"):
             matched_image, match_score = find_matching_image(user_input)
 
             if reuse_images and matched_image and os.path.exists(matched_image):
-                st.success(f"✅ Loaded existing image (match score: {match_score})")
                 st.image(matched_image, use_container_width=True)
 
             else:
