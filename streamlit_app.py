@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🎬 AI Character Memory — Hybrid Mode")
+st.title("🎬 CINE PERSONA - AI Character Memory")
 st.caption(
     "• Simple text OR director-style description"
 )
