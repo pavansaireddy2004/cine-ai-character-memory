@@ -14,9 +14,7 @@ st.set_page_config(
 
 st.title("🎬 AI Character Memory — Hybrid Mode")
 st.caption(
-    "• Simple text OR director-style description\n"
-    "• Reuses existing images automatically\n"
-    "• Generates only when required (credit-safe)"
+    "• Simple text OR director-style description"
 )
 
 # ==================================================
