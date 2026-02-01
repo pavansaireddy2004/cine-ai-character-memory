@@ -116,7 +116,19 @@ if st.button("Generate / Load Image", type="primary"):
 # 📘 HELP SECTION
 # ==================================================
 with st.expander("ℹ️ How Hybrid Mode Works"):
-    st.markdown("""
+    st.markdown(
+        """
 **This app understands BOTH:**
 
 ### 🧑‍💻 Simple input
+`hero running`
+
+### 🎥 Director-style input
+`Hero walking through stormy rain, wide angle shot, low camera`
+
+If keywords match existing scenes → **image is reused**  
+If no match → **new image is generated once**
+
+You stay in control of credits.
+        """
+    )
