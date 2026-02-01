@@ -110,6 +110,25 @@ if st.button("Generate / Load Image", type="primary"):
                 st.image(image, use_container_width=True)
                 st.caption("⚠️ New image generated (credits used)")
 
+
+st.divider()
+st.subheader("🎬 Story Preview Video")
+
+video_path = "final_story_video.mp4"
+
+if os.path.exists(video_path):
+    st.video(video_path)
+    with open(video_path, "rb") as file:
+        st.download_button(
+            label="⬇️ Download Story Video",
+            data=file,
+            file_name="final_story_video.mp4",
+            mime="video/mp4"
+        )
+else:
+    st.warning("Story video not found.")
+
+
 # ==================================================
 # 📘 HELP SECTION
 # ==================================================
